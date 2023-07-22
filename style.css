@@ -1,0 +1,129 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: verdana;
+}
+
+body{
+    background: #3a3d47;
+    width: 100%;
+}
+
+#contenedor{
+    background: white;
+    margin: auto;
+}
+
+header{
+    background: #1551a1;
+    padding: 50px;
+}
+
+#logo{
+    display: block;
+    float: left;
+    margin-left: 20px;
+    width: 150px;
+}
+#menu ul li{
+    list-style: none;
+    border: 1px solid white;
+    padding: 15px;
+    float: left;
+}
+
+#menu ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+#menu{
+    overflow: hidden;
+    margin-left: 40%;
+}
+
+#portada{
+    width: 100%;
+}
+
+h1{
+    margin: 20px;
+    text-align: center;
+    color: #ff7600;
+
+}
+
+.servicio{
+    outline: 1px solid black;
+    width: 100%;
+    margin: auto;
+    height: auto;
+}
+
+
+.imgserv{
+    width: 100%;
+    display: block;
+}
+
+h2{
+    background: #1551a1;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.parrafoserv{
+    margin: 10px;
+    text-align: justify;
+}
+
+.linkserv{
+    text-decoration: none;
+    color: white;
+    background: #1551a1;
+    padding: 10px;
+    border-radius: 4px;
+    float:left;
+    margin: 20px 35% 5px 35%;
+}
+
+footer{
+    background: #062348;
+    clear: both;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#izq{
+    width: 50%;
+    float: left;
+}
+
+#logopie{
+    width: 150px;
+    padding-top: 20px;
+    margin-left: 25%;
+}
+
+#parrafopie{
+    text-align: left;
+    color: white;
+    padding: 25px 0px 25px 25px;
+}
+
+#der{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+h3{
+    color: #fff;
+    padding-top: 45px;
+}
+
+.imgpie{
+    padding-top: 20px;
+}

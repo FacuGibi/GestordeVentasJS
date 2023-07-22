@@ -1,0 +1,288 @@
+{
+  "articulos": [
+    {
+      "codigo": "2040",
+      "nombre": "Chocolate Block 300 gr",
+      "stock": 8,
+      "precioCompra": 100,
+      "precioVenta": 180,
+      "id": 0
+    },
+    {
+      "codigo": "1750",
+      "nombre": "Gaseosa Coca Cola 3 litros",
+      "stock": 14,
+      "precioCompra": 150,
+      "precioVenta": 250,
+      "id": 1
+    },
+    {
+      "codigo": "4241",
+      "nombre": "Papas Fritas Lays 300 gr",
+      "stock": 0,
+      "precioCompra": 50,
+      "precioVenta": 100,
+      "id": 2
+    },
+    {
+      "codigo": "4045",
+      "nombre": "Cerveza Quilmes 1 litro",
+      "stock": 6,
+      "precioCompra": 120,
+      "precioVenta": 200,
+      "id": 3
+    },
+    {
+      "codigo": "1554",
+      "nombre": "Aceite Natura 500 cc",
+      "stock": 0,
+      "precioCompra": 150,
+      "precioVenta": 200,
+      "id": 4
+    },
+    {
+      "codigo": "2783",
+      "nombre": "Cafe Dolca Suave 170 gr",
+      "stock": 18,
+      "precioCompra": 650,
+      "precioVenta": 800,
+      "id": 5
+    },
+    {
+      "codigo": "3291",
+      "nombre": "Desodorante Rexona 150 ml",
+      "stock": 18,
+      "precioCompra": 200,
+      "precioVenta": 298,
+      "id": 6
+    },
+    {
+      "codigo": "3264",
+      "nombre": "Jabon en barra Rexona 90 gr",
+      "stock": 13,
+      "precioCompra": 90,
+      "precioVenta": 118,
+      "id": 7
+    },
+    {
+      "codigo": "5123",
+      "nombre": "Zopa Knorr Quick Zapallo 50 gr",
+      "stock": 4,
+      "precioCompra": 190,
+      "precioVenta": 220,
+      "id": 8
+    },
+    {
+      "codigo": "1233",
+      "nombre": "Agua Saborizada Aquarius Pomelo 2.25 lt",
+      "stock": 10,
+      "precioCompra": 180,
+      "precioVenta": 240,
+      "id": 9
+    },
+    {
+      "codigo": "1289",
+      "nombre": "Agua Villavicencio sin gas 2 lt",
+      "stock": 8,
+      "precioCompra": 100,
+      "precioVenta": 140,
+      "id": 10
+    },
+    {
+      "codigo": "5321",
+      "nombre": "Mayonesa Natura 475 gr",
+      "stock": 3,
+      "precioCompra": 200,
+      "precioVenta": 230,
+      "id": 11
+    },
+    {
+      "codigo": "2391",
+      "nombre": "Arroz Gallo Oro 1 kg",
+      "stock": 16,
+      "precioCompra": 170,
+      "precioVenta": 200,
+      "id": 12
+    },
+    {
+      "codigo": "5482",
+      "nombre": "Alfajor Block 50 gr",
+      "stock": 44,
+      "precioCompra": 100,
+      "precioVenta": 150,
+      "id": 14
+    },
+    {
+      "codigo": "454",
+      "nombre": "gjg",
+      "stock": 45,
+      "precioCompra": 45,
+      "precioVenta": 456,
+      "id": 15
+    }
+  ],
+  "clientes": [
+    {
+      "id": 0,
+      "nombre": "Jose Diaz",
+      "saldo": 0,
+      "estado": 1
+    },
+    {
+      "id": 1,
+      "nombre": "Juan Perez",
+      "saldo": 90,
+      "estado": 1
+    },
+    {
+      "id": 2,
+      "nombre": "Mario Gomez",
+      "saldo": 1200,
+      "estado": 1
+    },
+    {
+      "nombre": "Facundo Gibilisco",
+      "saldo": 0,
+      "estado": 0,
+      "id": 3
+    },
+    {
+      "nombre": "Celeste Bazan",
+      "saldo": 20,
+      "estado": 1,
+      "id": 4
+    },
+    {
+      "nombre": "German Luna",
+      "saldo": 0,
+      "estado": 1,
+      "id": 5
+    }
+  ],
+  "tipoVenta": [
+    {
+      "id": 0,
+      "tipo": "Contado",
+      "total": 15820
+    },
+    {
+      "id": 1,
+      "tipo": "Cuenta Corriente",
+      "total": 1310
+    }
+  ],
+  "ventas": [
+    {
+      "id": 0,
+      "estado": 1,
+      "tipoVentaId": 0,
+      "articuloId": 0,
+      "clienteId": 0
+    },
+    {
+      "id": 1,
+      "estado": 1,
+      "tipoVentaId": 1,
+      "articuloId": 1,
+      "clienteId": 1
+    }
+  ],
+  "movimientos": [
+    {
+      "id": 0,
+      "movimiento": "Venta contado",
+      "valor": 4000,
+      "descripcion": ""
+    },
+    {
+      "id": 1,
+      "movimiento": "Salida de dinero",
+      "valor": 10000,
+      "descripcion": "Se compro mercaderias para aumentar stock"
+    },
+    {
+      "id": 2,
+      "movimiento": "Ingreso de dinero",
+      "valor": 10000,
+      "descripcion": "Se ingreso dinero para aumento de capital"
+    },
+    {
+      "movimiento": "Venta contado",
+      "valor": 400,
+      "descripcion": "",
+      "id": 3
+    },
+    {
+      "movimiento": "Venta contado",
+      "valor": 1470,
+      "descripcion": "",
+      "id": 4
+    },
+    {
+      "movimiento": "Venta contado",
+      "valor": 520,
+      "descripcion": "",
+      "id": 5
+    },
+    {
+      "movimiento": "Pago de cliente",
+      "valor": 4000,
+      "descripcion": "El cliente Mario Gomez pago $4000",
+      "id": 6
+    },
+    {
+      "movimiento": "Pago de cliente",
+      "valor": 3000,
+      "descripcion": "El cliente Juan Perez pago $3000",
+      "id": 7
+    },
+    {
+      "movimiento": "Pago de cliente",
+      "valor": 700,
+      "descripcion": "El cliente Celeste Bazan pago $700",
+      "id": 8
+    },
+    {
+      "movimiento": "Venta contado",
+      "valor": 1140,
+      "descripcion": "",
+      "id": 9
+    },
+    {
+      "movimiento": "Venta contado",
+      "valor": 320,
+      "descripcion": "",
+      "id": 10
+    },
+    {
+      "movimiento": "Pago de cliente",
+      "valor": 1000,
+      "descripcion": "El cliente Juan Perez pago $1000",
+      "id": 11
+    },
+    {
+      "movimiento": "Pago de cliente",
+      "valor": 50,
+      "descripcion": "El cliente Mario Gomez pago $50",
+      "id": 12
+    },
+    {
+      "movimiento": "Pago de cliente",
+      "valor": 700,
+      "descripcion": "El cliente Mario Gomez pago $700",
+      "id": 13
+    },
+    {
+      "movimiento": "Venta contado",
+      "valor": 300,
+      "descripcion": "",
+      "id": 14
+    },
+    {
+      "movimiento": "Venta contado",
+      "valor": 1600,
+      "descripcion": "",
+      "id": 15
+    }
+  ]
+}

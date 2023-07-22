@@ -1,0 +1,49 @@
+Cree una app web (spa) que administre el stock y las ventas de un negocio de venta de golosinas, 
+la misma debe cumplir los suiguientes requisitos minimos.
+
+-Registro de stock de mercaderia.
+      *stock actual, stock minimo.
+      *precio de compra y venta.
+      *modificacion de stock (para reponer o actualizar) y precio.
+      *borrado de articulo solo si no forma parte de una venta.
+
+-Ventas de contado y en cuenta corriente.
+      *busqueda de articulos por nombre o codigo.
+      *descarga de stock (se resta cuando se vende y se suma cuando se anula)
+      *restriccion de venta de articulo sin stock.
+      *ingreso de dinero en caja o deuda del cliente cuenta corriente segun corresponda.
+
+-Anulacion de venta (no se borra se cambia el estado -esta=1 activa estado=2 anulada-)
+      *reponer stock.
+      *eliminar el movimiento de caja.
+      *en caso de ser cuenta corriente se resta la deuda del cliente.
+
+-Registro de movimiento de caja.
+      *registrar kas ventas de contado.
+      *registrar los pagos de deudas por cuenta corriente.
+      *registrar ingresos de dinero indicando motivo.
+      *registrar salida de dinero indicando motivo.
+
+-registro de clientes en cuenta corriente.
+      *con estado de cliente (habilitado o inhabilitado)
+      *desabilitar por limite de compra
+      *desabilitar por vencimientoo de fecha de pago de deuda.
+      *eliminacion de cliente solo si no tiene ventas.
+
+-Cobranza de deuda ctacte a cliente
+      *permitir pagos parciales de deuda de cliente en ctacte.
+
+-Reportes multiples.
+      *ventas totales.
+      *ventas de contado.
+      *ventas en ctacte.
+      *movimiento de caja
+      *deuda ctacte por cliente.
+      *stock completo.
+      *stock critico
+      *stock en cero.
+
+
+
+
+
