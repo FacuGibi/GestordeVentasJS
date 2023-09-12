@@ -8,7 +8,7 @@ let idCliente = "";
 let totalVta = 0;
 
 async function verStock() {
-  let art = await axios.get("http://localhost:3000/articulos");
+  let art = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/articulos");
 
   for (item of art.data) {
     let stock = item.stock;
@@ -41,7 +41,7 @@ async function verStock() {
 
 async function agregarArt() {
   try {
-    let art = await axios.get("http://localhost:3000/articulos");
+    let art = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/articulos");
 
     for (item of art.data) {
       if (
@@ -56,7 +56,7 @@ async function agregarArt() {
       }
 
       if (item.codigo !== (document.getElementById("cod").value)) {
-        await axios.post("http://localhost:3000/articulos", {
+        await axios.post("https://dbjson-gestor-de-ventas-js.vercel.app/articulos", {
           codigo: document.getElementById("cod").value,
           nombre: document.getElementById("nom").value,
           stock: parseInt(document.getElementById("stock").value),
@@ -89,7 +89,7 @@ function elimArt(id, stock) {
   if (!stock) {
     if (confirm("¿Desea borrar el artículo?") == true) {
       axios
-        .delete("http://localhost:3000/articulos/" + id)
+        .delete("https://dbjson-gestor-de-ventas-js.vercel.app/articulos/" + id)
         .then((res) => alert("Artículo eliminado correctamente"))
         .catch((err) => console.log(err));
     }
@@ -113,7 +113,7 @@ function modificarArticulo() {
     PrecioVenArt > 0
   ) {
     axios
-      .put("http://localhost:3000/articulos/" + var_id, {
+      .put("https://dbjson-gestor-de-ventas-js.vercel.app/articulos/" + var_id, {
         codigo: codigoArt,
         nombre: nombreArt,
         stock: parseInt(stockArt),
@@ -155,7 +155,7 @@ function limpiar() {
 // JS VENTAS.HTML
 
 $(async function listarArticulos() {
-  let art = await axios.get("http://localhost:3000/articulos");
+  let art = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/articulos");
 
   let list = [];
 
@@ -170,7 +170,7 @@ $(async function listarArticulos() {
 });
 
 async function verArticulo() {
-  let art = await axios.get("http://localhost:3000/articulos");
+  let art = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/articulos");
   let prod = document.getElementById("buscArticulo").value;
 
   if (prod != "") {
@@ -181,7 +181,7 @@ async function verArticulo() {
       }
     });
 
-    art = await axios.get("http://localhost:3000/articulos/" + idArticulo);
+    art = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/articulos/" + idArticulo);
     if (art.data.stock > 0) {
       document.getElementById("buscCodAr").value = art.data.codigo;
       document.getElementById("buscNomAr").value = art.data.nombre;
@@ -267,7 +267,7 @@ function checkCtaCte() {
 }
 
 $(async function listarClientes() {
-  let clientes = await axios.get("http://localhost:3000/clientes");
+  let clientes = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/clientes");
 
   let list = [];
 
@@ -281,7 +281,7 @@ $(async function listarClientes() {
 });
 
 async function verCliente() {
-  let clientes = await axios.get("http://localhost:3000/clientes");
+  let clientes = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/clientes");
   let nomCliente = document.getElementById("buscCliente").value;
 
   if (nomCliente != "") {
@@ -291,7 +291,7 @@ async function verCliente() {
       }
     });
 
-    clientes = await axios.get("http://localhost:3000/clientes/" + idCliente);
+    clientes = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/clientes/" + idCliente);
 
     if (clientes.data.estado != 0) {
       document.getElementById("buscNomCl").style.visibility = "visible";
@@ -305,21 +305,21 @@ async function verCliente() {
 }
 
 async function confirmarVenta() {
-  let clientes = await axios.get("http://localhost:3000/clientes");
-  let tipoVenta = await axios.get("http://localhost:3000/tipoVenta");
+  let clientes = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/clientes");
+  let tipoVenta = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/tipoVenta");
 
   //CARGA DE VENTA EN EFECTIVO
   if (document.getElementById("pagoEfec").checked) {
     //CARGAR VENTA EN TIPOVENTA
     let total = tipoVenta.data[0].total;
     axios
-      .patch("http://localhost:3000/tipoVenta/0", { total: total + totalVta })
+      .patch("https://dbjson-gestor-de-ventas-js.vercel.app/tipoVenta/0", { total: total + totalVta })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
     //CARGAR VENTA DE CONTADO EN MOVIMIENTOS DE CAJA
     axios
-      .post("http://localhost:3000/movimientos", {
+      .post("https://dbjson-gestor-de-ventas-js.vercel.app/movimientos", {
         movimiento: "Venta contado",
         valor: totalVta,
         descripcion: "",
@@ -342,20 +342,20 @@ async function confirmarVenta() {
         idCliente = e.id;
       }
     });
-    clientes = await axios.get("http://localhost:3000/clientes/" + idCliente);
+    clientes = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/clientes/" + idCliente);
 
     if (clientes.data.saldo <= 5000) {
       let saldo = clientes.data.saldo;
       let nuevoSaldo = saldo + totalVta;
       axios
-        .patch("http://localhost:3000/clientes/" + idCliente, {
+        .patch("https://dbjson-gestor-de-ventas-js.vercel.app/clientes/" + idCliente, {
           saldo: nuevoSaldo,
         })
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
       console.log(nuevoSaldo);
       if (nuevoSaldo > 5000) {
-        axios.patch("http://localhost:3000/clientes/" + idCliente, {
+        axios.patch("https://dbjson-gestor-de-ventas-js.vercel.app/clientes/" + idCliente, {
           estado: 0,
         });
       }
@@ -363,7 +363,7 @@ async function confirmarVenta() {
       //CARGAR VENTA EN TIPOVENTA
       let total = tipoVenta.data[1].total;
       axios
-        .patch("http://localhost:3000/tipoVenta/1", { total: total + totalVta })
+        .patch("https://dbjson-gestor-de-ventas-js.vercel.app/tipoVenta/1", { total: total + totalVta })
         .then((res) => {
           console.log(res);
           alert("Venta realizada con éxito");
@@ -381,12 +381,12 @@ async function confirmarVenta() {
 
 //CARGA DE VENTA EN STOCK DE ARTICULOS
 async function disminuirStock() {
-  let articulos = await axios.get("http://localhost:3000/articulos");
+  let articulos = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/articulos");
 
   for (let i = 0; i < articulos.data.length; i++) {
     if (localStorage.getItem(i)) {
       axios
-        .patch("http://localhost:3000/articulos/" + i, {
+        .patch("https://dbjson-gestor-de-ventas-js.vercel.app/articulos/" + i, {
           stock: articulos.data[i].stock - parseInt(localStorage.getItem(i)),
         })
         .then((res) => console.log(res))
@@ -404,7 +404,7 @@ async function disminuirStock() {
 // JS CLIENTES.HTML
 
 async function verClientes() {
-  let clientes = await axios.get("http://localhost:3000/clientes");
+  let clientes = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/clientes");
 
   for (item of clientes.data) {
     document.getElementById("tableClientes").innerHTML += `
@@ -441,18 +441,18 @@ async function verClientes() {
 }
 
 async function deshabilitarCliente(id) {
-  let cliente = await axios.get("http://localhost:3000/clientes/" + id);
+  let cliente = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/clientes/" + id);
 
   console.log(cliente.data);
 
   if (cliente.data.estado == 0) {
     axios
-      .patch("http://localhost:3000/clientes/" + id, { estado: 1 })
+      .patch("https://dbjson-gestor-de-ventas-js.vercel.app/clientes/" + id, { estado: 1 })
       .then((res) => alert(`El cliente ${cliente.data.nombre} fue habilitado`))
       .catch((err) => console.log(err));
   } else {
     axios
-      .patch("http://localhost:3000/clientes/" + id, { estado: 0 })
+      .patch("https://dbjson-gestor-de-ventas-js.vercel.app/clientes/" + id, { estado: 0 })
       .then((res) =>
         alert(`El cliente ${cliente.data.nombre} fue deshabilitado`)
       )
@@ -465,7 +465,7 @@ function agregarCliente() {
 
   if (nomCliente != "") {
     axios
-      .post("http://localhost:3000/clientes", {
+      .post("https://dbjson-gestor-de-ventas-js.vercel.app/clientes", {
         nombre: nomCliente,
         saldo: 0,
         estado: 1,
@@ -478,12 +478,12 @@ function agregarCliente() {
 }
 
 async function elimCliente(id) {
-  let cliente = await axios.get("http://localhost:3000/clientes/" + id);
+  let cliente = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/clientes/" + id);
 
   if (cliente.data.saldo == 0) {
     if (confirm("¿Desea eliminar este cliente?")) {
       axios
-        .delete("http://localhost:3000/clientes/" + id)
+        .delete("https://dbjson-gestor-de-ventas-js.vercel.app/clientes/" + id)
         .then((res) => alert(`El cliente ${cliente.data.nombre} fue eliminado`))
         .catch((err) => console.log(err));
     }
@@ -505,7 +505,7 @@ function modificarCliente() {
     let nuevoNombre = document.getElementById("modNomCl").value;
     let id = localStorage.getItem("id");
     axios
-      .patch("http://localhost:3000/clientes/" + id, { nombre: nuevoNombre })
+      .patch("https://dbjson-gestor-de-ventas-js.vercel.app/clientes/" + id, { nombre: nuevoNombre })
       .then((res) => {
         alert("Cliente modificado con éxito");
         localStorage.clear();
@@ -524,8 +524,8 @@ function pagoCliente(id, nombre, saldo) {
   document.getElementById("modalPagoCl").value = "";
 }
 async function confPagoCliente() {
-  let vtaClientesActual = await axios.get("http://localhost:3000/tipoVenta/1");
-  let vtaEfectivoActual = await axios.get("http://localhost:3000/tipoVenta/0");
+  let vtaClientesActual = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/tipoVenta/1");
+  let vtaEfectivoActual = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/tipoVenta/0");
   let id = localStorage.getItem("id");
   let saldoActual = localStorage.getItem("saldo");
   let nombre = localStorage.getItem("nombre");
@@ -537,24 +537,24 @@ async function confPagoCliente() {
 
   if (parseInt(pago) <= parseInt(saldoActual)) {
     await axios
-      .patch("http://localhost:3000/clientes/" + id, { saldo: nuevoSaldo })
+      .patch("https://dbjson-gestor-de-ventas-js.vercel.app/clientes/" + id, { saldo: nuevoSaldo })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
     await axios
-      .patch("http://localhost:3000/tipoVenta/1", { total: vtaClientesNuevo })
+      .patch("https://dbjson-gestor-de-ventas-js.vercel.app/tipoVenta/1", { total: vtaClientesNuevo })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
     await axios
-      .patch("http://localhost:3000/tipoVenta/0", {
+      .patch("https://dbjson-gestor-de-ventas-js.vercel.app/tipoVenta/0", {
         total: parseInt(vtaEfectivoNuevo),
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
     await axios
-      .post("http://localhost:3000/movimientos", {
+      .post("https://dbjson-gestor-de-ventas-js.vercel.app/movimientos", {
         movimiento: "Pago de cliente",
         valor: parseInt(pago),
         descripcion: `El cliente ${nombre} pago $${pago}`,
@@ -577,7 +577,7 @@ async function confPagoCliente() {
 // JS REPORTES.HTML
 
 async function verMovimientos() {
-  let movimientos = await axios.get("http://localhost:3000/movimientos");
+  let movimientos = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/movimientos");
   for (item of movimientos.data.reverse()) {
     document.getElementById(
       "modalMovimientosBody"
@@ -602,7 +602,7 @@ async function verMovimientos() {
 }
 
 async function totalesVentas() {
-  let tipoVta = await axios.get("http://localhost:3000/tipoVenta");
+  let tipoVta = await axios.get("https://dbjson-gestor-de-ventas-js.vercel.app/tipoVenta");
   let totalEfectivo = tipoVta.data[0].total;
   let totalClientes = tipoVta.data[1].total;
   total = totalEfectivo + totalClientes;
